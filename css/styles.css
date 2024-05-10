@@ -1,0 +1,283 @@
+* {
+    font-family: sans-serif;
+}
+
+  
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    background-color: #b4f0ea;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #2dd0ed;
+    border-bottom: 2px solid black;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Logo */
+.logo {
+    height: 70px;
+    width: auto;
+}
+
+.logo img {
+    height: auto;
+    width: 70px;
+}
+
+/* Product Cards */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Description Button */
+.descripcion-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #b4f0ea;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.descripcion-btn:hover {
+    background-color: #2dd0ed;
+}
+
+/* Description Dropdown */
+.dropdown-descripcion {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-descripcion.show {
+    display: block;
+}
+
+/* Add to Cart Button */
+.agregar-carrito {
+    background-color: #b4f0ea;
+    color: #2dd0ed;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.agregar-carrito img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    
+    display: inline-flex;
+    align-items: center;
+
+}
+
+.agregar-carrito:hover {
+    background-color: #2dd0ed;
+}
+#contenedor-productos{
+    margin-top: 120px;
+}
+/* Product Container */
+.productos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-top: 30px;
+}
+
+/* Shopping Cart Navigation */
+.carrito-nav {
+    margin-right: 20px;
+}
+
+.carrito-nav a {
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.carrito-nav a:hover {
+    color: #2dd0ed;
+    border-bottom: 2px solid black;
+}
+
+/* Footer Links */
+/* .footer-links li {
+
+} */
+
+.carrito-container {
+    display: flex;
+    position: fixed;
+    margin-top: -34px; /* Altura del navbar */
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+}
+.carrito-container ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrito-container ul li a {
+    margin-left: auto;
+}
+.carrito-card {
+    padding: 10px;
+}
+/* cerrar objeto de carrit */
+.carrito-container li a {
+    background-color: #f05663;
+    padding: 5px;
+    display: inline-flex;
+    border-radius: 5px;
+}
+
+.carrito-container li a:hover {
+    background-color: #f03040;
+}
+
+.footer-links {
+    position:sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #b4f0ea;
+    text-align: center; /* Para centrar el contenido */
+    padding: 10px; /* Ajusta el relleno según sea necesario */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    list-style-type: none;
+}
+/* Ajustes para el aside del carrito */
+.carrito-container {
+    position: fixed;
+    top: 110px; /* Altura del navbar */
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ccc; /* Para separarlo del contenido principal */
+    overflow-y: auto; /* Agregar desplazamiento vertical si es necesario */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+.carrito-container p {
+    padding: 20px;
+    margin: 0; /* Evitar el espacio adicional */
+}
+
+.carrito-container ul {
+    padding: 0 20px; /* Ajustar el padding para evitar que los elementos se peguen al borde */
+    margin: 0; /* Evitar el espacio adicional */
+}
+
+/* Ajustes para el contenido principal */
+.contenedor-central {
+    margin-right: 320px; /* Dejar espacio suficiente para el aside del carrito */
+}
+
+/* Ajustes para el navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Asegurar que esté por encima del aside del carrito */
+    background-color: #b4f0ea;
+}
