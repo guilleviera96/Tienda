@@ -3,89 +3,91 @@
     "marca": "Nike",
     "modelo": "Precision 6 Oreo",
     "imagen": "./assets/images/nike-precision-6-510x510.png",
-    "descripcion": "Crea espacio, para en seco y dribla. Hazlo todo con las Nike Precision 6. Están diseñadas para que los jugadores más rápidos puedan cambiar de velocidad y de dirección mientras mantienen el control. Desde la suave zona del tobillo y la lengüeta hasta la tracción con diseño de espiga modificado, el ágil perfil bajo permite sacar el máximo partido a tus habilidades y llevar el ritmo del partido.",
+    "descripcion": "Crea espacio, para en seco y dribla. Hazlo todo con las Nike Precision 6. Están diseñadas para que los jugadores más rápidos puedan cambiar de velocidad y de dirección mientras mantienen el control.",
     "precio": 90.00
   },
   {
     "marca": "Nike",
     "modelo": "Renew Elevate 3",
     "imagen": "./assets/images/nike-renew-elevate-3-510x510.png",
-    "descripcion": "Las zapatillas de básquet Renew Elevate 3 mejoran tu juego en ambos extremos de la cancha. Estas zapatillas están especialmente diseñadas para jugadores versátiles que se mueven tanto en la posición de ataque como en la de defensa y te ayudarán a mejorar tus capacidades de juego con sujeción y estabilidad durante toda la temporada.",
+    "descripcion": "Las zapatillas de básquet Renew Elevate 3 mejoran tu juego en ambos extremos de la cancha. Estas zapatillas están especialmente diseñadas para jugadores versátiles que se mueven tanto en la posición de ataque como en la de defensa y te ayudarán a mejorar tus capacidades de juego con sujeción y estabilidad.",
     "precio": 100.00
   },
   {
     "marca": "Nike",
     "modelo": "Lebron Witness 7",
     "imagen": "./assets/images/Nike-Lebron-Witness-7-510x510.png",
-    "descripcion": "Cuanto más tiempo continúe la legendaria carrera de LeBron, más necesitará un diseño que no pese y que le permita controlar su increíble potencia. Por ello, hemos creado nuestro modelo LeBron más ligero, que también cuenta con una sujeción fiable que te ayuda a mantenerte en tu posición en los momentos más críticos del partido. La amortiguación Max Air completa te ayuda a despegar y aterrizar con seguridad, y la malla ligera se combina con cables para mantener la sujeción los cuatro cuartos o más.",
+    "descripcion": "Cuanto más tiempo continúe la legendaria carrera de LeBron, más necesitará un diseño que no pese y que le permita controlar su increíble potencia. Por ello, hemos creado nuestro modelo LeBron más ligero, que también cuenta con una sujeción fiable que te ayuda a mantenerte en tu posición en los momentos más críticos del partido.",
     "precio": 120.00
   },
   {
     "marca": "Nike",
     "modelo": "Lebron Witness 8 Dunkman",
     "imagen": "./assets/images/Nike-Lebron-Witness-8-Dunkman-1-510x510.png",
-    "descripcion": "Cuando pisas la pista, ¿qué tipo de actuación quieres realizar? Detén el espectáculo en estos LeBron Witness 8 y hazles saber que no hay límites para tu estilo y tus habilidades a gran escala. Este zapato elegante y audazmente esculpido ofrece estabilidad cuando explota y aterrizajes suaves cuando regresas al suelo, lo que permite a capos como tú y LeBron saltar, frenar y disparar de una línea de fondo a otra. Con su suela de goma extraduradera, esta versión te brinda tracción para canchas al aire libre.",
+    "descripcion": "Estas zapatillas para baloncesto, diseñadas por Nike, cuentan con una construcción de materiales sintéticos muy resistentes a las caídas, roces y saltos, además de una malla duradera y transpirable.",
     "precio": 150.00
   },
   {
-    "marca":"Adidas",
-    "modelo":"Adidas Dame Extply 2.0",
-    "imagen":"./assets/images/Adidas-Dame-Extply-510x510.png",
-    "descripcion":"El estilo de Damian Lillard mezcla baloncesto y hip hop. Domina la madera dura de la misma manera que domina el estudio de grabación. Las exclusivas zapatillas Dame Extply 2.0 de adidas Basketball se basan en el legado de Dame DOLLA. Cuentan con una entresuela Bounce liviana para mayor amortiguación, una parte superior transpirable que mantiene el flujo de aire y todos los detalles exclusivos que celebran la grandeza de Damian Lillard.",
-    "precio":150.00
-  },
-  {
-    "marca":"Jordan",
-    "modelo":"Jordan Stay Loyal 2",
-    "imagen":"./assets/images/Nike-jordan-stay-loyal-2-510x510.png",
-    "descripcion":"Inspirado en generaciones de Jordan, este calzado es un collage de frescura. Los detalles de diseño recuperan décadas de calzado legendarias y rinden homenaje a la mítica carrera de MJ. La malla transpirable, el cuero resistente y la ligera amortiguación Air en el talón hacen que sea mucho más fácil seguir los pasos hacia la grandeza.",
+    "marca": "Adidas",
+    "modelo": "Extply 2.0",
+    "imagen": "./assets/images/Adidas-Dame-Extply-510x510.png",
+    "descripcion": "Las exclusivas zapatillas Dame Extply 2.0 de adidas Basketball se basan en el legado de Dame DOLLA. Cuentan con una entresuela Bounce liviana para mayor amortiguación, una parte superior transpirable que mantiene el flujo de aire y todos los detalles exclusivos que celebran la grandeza de Damian Lillard.",
     "precio": 150.00
   },
   {
-    "marca":"Jordan",
-    "modelo":"Jason Tatum 1",
-    "imagen":"./assets/images/Zapatillas-de-basquet-Jordan-Tatum-1--510x510.png",
-    "descripcion":"Tu amor por el juego nunca se desvanece. Es por eso que las Jordan Tatum 1 se han creado pensando en la longevidad. Diseñadas para llevar desde el principio hasta el final de los partidos de la manera más eficiente posible, se reducen a lo esencial; y esos elementos esenciales son realmente buenos.",
+    "marca": "Jordan",
+    "modelo": "Stay Loyal 2",
+    "imagen": "./assets/images/Nike-jordan-stay-loyal-2-510x510.png",
+    "descripcion": "Inspirado en generaciones de Jordan, este calzado es un collage de frescura. Los detalles de diseño recuperan décadas de calzado legendarias y rinden homenaje a la mítica carrera de MJ. La malla transpirable, el cuero resistente y la ligera amortiguación Air en el talón hacen que sea mucho más fácil seguir los pasos hacia la grandeza.",
+    "precio": 150.00
+  },
+  {
+    "marca": "Jordan",
+    "modelo": "Tatum 1",
+    "imagen": "./assets/images/Zapatillas-de-basquet-Jordan-Tatum-1--510x510.png",
+    "descripcion": "Tu amor por el juego nunca se desvanece. Es por eso que las Jordan Tatum 1 se han creado pensando en la longevidad. Diseñadas para llevar desde el principio hasta el final de los partidos de la manera más eficiente posible, se reducen a lo esencial; y esos elementos esenciales son realmente buenos.",
     "precio": 180.00
   },
   {
-    "marca":"Adidas",
+    "marca": "Adidas",
     "modelo": "D.O.N ISSUE 5",
-    "imagen":"./assets/images/AdidasDonISSUE5.png",
-    "descripcion":"O.N. Issue 5 está inspirada en la asombrosa habilidad de Spida para colocarse fácilmente delante de la canasta y dejar atrás a sus rivales, sin dejar de ser el centro de atención por su destacado activismo social fuera de la cancha.",
-    "precio":180.00
-  },
-  {
-    "marca":"Adidas",
-    "modelo":"Trae Young Unlimited 2",
-    "imagen":"./assets/images/TraeYoung.png",
-    "descripcion":"Creada para jóvenes estrellas de la canasta, esta versión de su exclusiva zapatilla de baloncesto adidas combina una parte superior de caña baja y una mediasuela Bounce que se adapta a cada uno de sus movimientos. Las clásicas 3 bandas lucen un diseño texturizado que envuelve el antepié.",
-    "precio":150.00
-
-  },
-  {
-    "marca":"Jordan",
-    "modelo":"Zion 2",
-    "imagen":"./assets/images/Zion2.png",
-    "descripcion":"Este modelo cuenta con una parte superior de tonalidad vela completamente limpia de malla y cuero perforado, la cual se funde con un profundo y jovial azul marino y rojo en las lengüetas, cuellos, forros y talones.",
-    "precio":180.00
-  },
-  {
-    "marca":"Nike",
-    "modelo":"KD 16",
-    "imagen":"./assets/images/KD16.png",
-    "descripcion": "A diferencia de sus predecesoras, esta versión no incorpora imágenes florales. Eso sí, mantiene la elegancia con las iniciales de la abuela de Durant en cursiva en la lengüeta izquierda y en ambas plantillas. Un toque personal que agrega un elemento emotivo a este lanzamiento.",
+    "imagen": "./assets/images/AdidasDonISSUE5.png",
+    "descripcion": "D.O.N. Issue 5 está inspirada en la asombrosa habilidad de Spida para colocarse fácilmente delante de la canasta y dejar atrás a sus rivales, sin dejar de ser el centro de atención por su destacado activismo social fuera de la cancha.",
     "precio": 180.00
   },
   {
-    "marca":"Adidas",
-    "modelo":"Harden 8",
-    "imagen":"./assets/images/Harden8.png",
-    "descripcion":"Estos sneakers ofrecen un rendimiento excepcional. La parte superior de tejido Primeknit proporciona un ajuste cómodo y adaptable, mientras que la tecnología Boost en la entresuela te brinda una amortiguación receptiva y una energía explosiva en cada paso y salto.",
+    "marca": "Adidas",
+    "modelo": "Trae Young Unlimited 2",
+    "imagen": "./assets/images/TraeYoung.png",
+    "descripcion": "Creada para jóvenes estrellas de la canasta, esta versión de su exclusiva zapatilla de baloncesto adidas combina una parte superior de caña baja y una mediasuela Bounce que se adapta a cada uno de sus movimientos. Las clásicas 3 bandas lucen un diseño texturizado que envuelve el antepié.",
+    "precio": 150.00
+  },
+  {
+    "marca": "Jordan",
+    "modelo": "Zion 2",
+    "imagen": "./assets/images/Zion2.png",
+    "descripcion": "Este modelo cuenta con una parte superior de tonalidad vela completamente limpia de malla y cuero perforado, la cual se funde con un profundo y jovial azul marino y rojo en las lengüetas, cuellos, forros y talones.",
     "precio": 180.00
   },
   {
-
+    "marca": "Nike",
+    "modelo": "KD 16",
+    "imagen": "./assets/images/KD16.png",
+    "descripcion": "Mantiene la elegancia con las iniciales de la abuela de Durant en cursiva en la lengüeta izquierda y en ambas plantillas. Un toque personal que agrega un elemento emotivo a este lanzamiento.",
+    "precio": 180.00
+  },
+  {
+    "marca": "Adidas",
+    "modelo": "Harden 8",
+    "imagen": "./assets/images/Harden8.png",
+    "descripcion": "Estos sneakers ofrecen un rendimiento excepcional. La parte superior de tejido Primeknit proporciona un ajuste cómodo y adaptable, mientras que la tecnología Boost en la entresuela te brinda una amortiguación receptiva y una energía explosiva en cada paso y salto.",
+    "precio": 180.00
+  },
+  {
+    "marca": "Adidas",
+    "modelo": "DAME 8",
+    "imagen": "./assets/images/Dame8.png",
+    "descripcion": "Damian Lillard es un jugador que destaca por sus triples desde cualquier parte de la cancha, capaz de anotar desde el centro de la cancha o de abrirse a cualquiera de los dos costados para encontrar el espacio suficiente y encestar de tres, sin importar la presión del partido para darnos su “Dame Time”.",
+    "precio": 160.00
   }
-
 ]

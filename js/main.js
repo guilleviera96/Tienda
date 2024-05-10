@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Iniciando...");
+
     const contenedorProductos = document.getElementById('contenedor-productos');
     const carritoNav = document.querySelector('.carrito-nav');
     const asideCarrito = document.createElement('aside');
@@ -6,53 +8,79 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(asideCarrito);
     const productosEnCarrito = [];
 
+    // ocultar carrito al recargar page
+    asideCarrito.style.display = 'none';
+
+    // mostrar / esconder carrito
+    function toggleCarrito() {
+        if (asideCarrito.style.display === 'none' || asideCarrito.style.display === '') {
+            asideCarrito.style.display = 'block'; // mostrar el carrito si está oculto
+        } else {
+            // ocultar carrito si esta vacio
+            asideCarrito.style.display = 'none';
+        }
+    }
+
+    // mostrar productos en index
     fetch('productos.json')
         .then(response => response.json())
         .then(data => mostrarProductos(data))
         .catch(error => console.error('Error cargando productos:', error));
 
+    // inicio para filtrar prods
+    document.querySelector('.nav-links li:first-child a').addEventListener('click', function (event) {
+        event.preventDefault();
+        fetch('productos.json')
+            .then(response => response.json())
+            .then(data => mostrarProductos(data))
+            .catch(error => console.error('Error cargando productos:', error));
+
+        // para ocultar carrito cuando recargo
+        asideCarrito.style.display = 'none';
+    });
+
     // Manejar clics en los enlaces de filtro de marca
     document.querySelectorAll('.dropdown-content a').forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             const marca = this.dataset.marca;
             filtrarProductosPorMarca(marca);
         });
     });
 
-    document.querySelector('.nav-links li:nth-child(2) a').addEventListener('click', function(event) {
-        event.preventDefault();
-        fetch('productos.json')
-            .then(response => response.json())
-            .then(data => mostrarProductos(data))
-            .catch(error => console.error('Error cargando productos:', error));
-    });
-
     carritoNav.addEventListener('click', () => {
         toggleCarrito();
     });
 
-    function toggleCarrito() {
-        if (asideCarrito.style.display === 'none' || asideCarrito.style.display === '') {
-            asideCarrito.style.display = 'block'; // Mostrar el carrito si está oculto
-        } else {
-            asideCarrito.style.display = 'none'; // Ocultar el carrito si está visible
-        }
-    }
+    function mostrarProductos(productos, marca = null) {
+        contenedorProductos.innerHTML = '';
 
-    function mostrarProductos(productos) {
-        contenedorProductos.innerHTML = ''; // Limpiar contenido anterior
-    
+        const flexContainer = document.createElement('div');
+        flexContainer.classList.add('productos-flex');
+
+        if (marca) {
+            const tituloContainer = document.createElement('div');
+            tituloContainer.style.width = '100%';
+            tituloContainer.style.textAlign = 'center';
+            tituloContainer.style.textDecoration = 'underline';
+            const tituloMarca = document.createElement('h2');
+            tituloMarca.innerHTML = `${marca}`;
+            tituloContainer.appendChild(tituloMarca);
+            contenedorProductos.appendChild(tituloContainer);
+        }
+
         productos.forEach(producto => {
             const productoDiv = document.createElement('div');
             productoDiv.classList.add('producto');
-            const card = crearTarjetaProducto(producto);
+            const card = crearTarjetaProducto(producto, marca);
             productoDiv.appendChild(card);
-            contenedorProductos.appendChild(productoDiv);
+            flexContainer.appendChild(productoDiv);
         });
+
+        contenedorProductos.appendChild(flexContainer);
     }
 
-    function crearTarjetaProducto(producto) {
+    function crearTarjetaProducto(producto, marca) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
 
@@ -64,12 +92,12 @@ document.addEventListener("DOMContentLoaded", function() {
         imagen.alt = producto.modelo;
 
         const marcaModelo = document.createElement('h3');
-        marcaModelo.innerHTML = `<strong>${producto.marca}</strong> - <strong>${producto.modelo}</strong>`;
+        marcaModelo.innerHTML = `<strong>${producto.modelo}</strong>`;
 
         const descripcion = document.createElement('p');
         descripcion.textContent = producto.descripcion;
         descripcion.classList.add('descripcion');
-        
+
         const precio = document.createElement('p');
         precio.innerHTML = `<strong>Precio</strong>: $${producto.precio.toFixed(2)}`;
         precio.classList.add('precio')
@@ -80,12 +108,13 @@ document.addEventListener("DOMContentLoaded", function() {
             agregarAlCarrito(producto);
         });
         const iconoAgregar = document.createElement('img');
+        iconoAgregar.classList.add('plusMath');
         iconoAgregar.src = './assets/Plus Math.svg';
         iconoAgregar.alt = 'Agregar a carrito';
         botonAgregar.appendChild(iconoAgregar);
-        
-        card.appendChild(imagen);
+
         card.appendChild(marcaModelo);
+        card.appendChild(imagen);
         card.appendChild(descripcion);
         card.appendChild(precio);
         card.appendChild(botonAgregar);
@@ -96,43 +125,52 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function filtrarProductosPorMarca(marca) {
+
         fetch('productos.json')
             .then(response => response.json())
             .then(data => {
                 const productosFiltrados = data.filter(producto => producto.marca === marca);
-                mostrarProductos(productosFiltrados);
+                mostrarProductos(productosFiltrados, marca);
             })
             .catch(error => console.error('Error filtrando productos por marca:', error));
     }
 
+    function agregarAlCarrito(producto) {
+        productosEnCarrito.push(producto);
+        mostrarCarrito();
+    }
+
     function mostrarCarrito() {
-        asideCarrito.innerHTML = ''; // Limpiar contenido anterior
-    
+        // reset contenido
+        asideCarrito.innerHTML = '';
+
         if (productosEnCarrito.length === 0) {
-            asideCarrito.style.display = 'none'; // Ocultar el aside si el carrito está vacío
-            return; // Salir de la función si el carrito está vacío
+            // ocultar aside si esta vacio
+            asideCarrito.style.display = 'none';
+            return;
         }
-    
+
         const listaProductos = document.createElement('ul');
-        listaProductos.style.listStyle = 'none'; // Eliminar el punto de la lista
-    
+        // eliminar punto d elista
+        listaProductos.style.listStyle = 'none';
+
         productosEnCarrito.forEach((producto, index) => {
             const itemProducto = document.createElement('li');
-            
-            // Crear una imagen para usar como marcador de lista
+
+            // img de zap
             const imagenProducto = document.createElement('img');
             imagenProducto.src = producto.imagen;
             imagenProducto.alt = producto.modelo;
-            imagenProducto.style.width = '50px'; 
+            imagenProducto.style.width = '50px';
             imagenProducto.style.height = '50px';
             imagenProducto.style.marginRight = '20px';
             itemProducto.appendChild(imagenProducto);
-    
-            // Crear el texto con el modelo y el precio del producto
+
+            // text con marca y modelo
             const textoProducto = document.createElement('span');
             textoProducto.innerHTML = `<hr>${producto.marca} ${producto.modelo}  <strong>Precio</strong>: $${producto.precio.toFixed(2)}<hr>`;
             itemProducto.appendChild(textoProducto);
-    
+
             const botonEliminar = document.createElement('a');
             botonEliminar.href = '#';
             const iconoEliminar = document.createElement('img');
@@ -142,18 +180,12 @@ document.addEventListener("DOMContentLoaded", function() {
             botonEliminar.addEventListener('click', () => {
                 eliminarDelCarrito(index);
             });
-    
+
             itemProducto.appendChild(botonEliminar);
             listaProductos.appendChild(itemProducto);
         });
         asideCarrito.appendChild(listaProductos);
         asideCarrito.style.display = 'block'; // Mostrar el aside si hay productos en el carrito
-    }
-    
-
-    function agregarAlCarrito(producto) {
-        productosEnCarrito.push(producto);
-        mostrarCarrito();
     }
 
     function eliminarDelCarrito(index) {
