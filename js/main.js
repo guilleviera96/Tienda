@@ -8,15 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(asideCarrito);
     const productosEnCarrito = [];
 
-    // Crear el elemento para mostrar el total
+    // crear el elemento para mostrar el total
     const totalCarrito = document.createElement('p');
     totalCarrito.classList.add('total-carrito');
     asideCarrito.appendChild(totalCarrito);
 
-    // Ocultar carrito al recargar la página
+    // ocultar carrito al recargar la página
     asideCarrito.style.display = 'none';
 
-    // Mostrar / esconder carrito
+    // mostrar / esconder carrito
     function toggleCarrito() {
         if (asideCarrito.style.display === 'none' || asideCarrito.style.display === '') {
             asideCarrito.style.display = 'block'; // Mostrar el carrito si está oculto
@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Mostrar productos en index
+    // mostrar productos en index
     fetch('productos.json')
         .then(response => response.json())
         .then(data => mostrarProductos(data))
         .catch(error => console.error('Error cargando productos:', error));
 
-    // Inicio para filtrar productos
+    // inicio para filtrar productos
     document.querySelector('.nav-links li:first-child a').addEventListener('click', function (event) {
         event.preventDefault();
         fetch('productos.json')
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         asideCarrito.style.display = 'none'; // Para ocultar carrito cuando recargo
     });
 
-    // Manejar clics en los enlaces de filtro de marca
+    // manejar clics en los enlaces de filtro de marca
     document.querySelectorAll('.dropdown-content a').forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
