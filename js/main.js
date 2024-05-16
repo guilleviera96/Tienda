@@ -8,26 +8,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(asideCarrito);
     const productosEnCarrito = [];
 
-    // ocultar carrito al recargar page
+    // Crear el elemento para mostrar el total
+    const totalCarrito = document.createElement('p');
+    totalCarrito.classList.add('total-carrito');
+    asideCarrito.appendChild(totalCarrito);
+
+    // Ocultar carrito al recargar la página
     asideCarrito.style.display = 'none';
 
-    // mostrar / esconder carrito
+    // Mostrar / esconder carrito
     function toggleCarrito() {
         if (asideCarrito.style.display === 'none' || asideCarrito.style.display === '') {
-            asideCarrito.style.display = 'block'; // mostrar el carrito si está oculto
+            asideCarrito.style.display = 'block'; // Mostrar el carrito si está oculto
         } else {
-            // ocultar carrito si esta vacio
-            asideCarrito.style.display = 'none';
+            asideCarrito.style.display = 'none'; // Ocultar carrito si está vacío
         }
     }
 
-    // mostrar productos en index
+    // Mostrar productos en index
     fetch('productos.json')
         .then(response => response.json())
         .then(data => mostrarProductos(data))
         .catch(error => console.error('Error cargando productos:', error));
 
-    // inicio para filtrar prods
+    // Inicio para filtrar productos
     document.querySelector('.nav-links li:first-child a').addEventListener('click', function (event) {
         event.preventDefault();
         fetch('productos.json')
@@ -35,8 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => mostrarProductos(data))
             .catch(error => console.error('Error cargando productos:', error));
 
-        // para ocultar carrito cuando recargo
-        asideCarrito.style.display = 'none';
+        asideCarrito.style.display = 'none'; // Para ocultar carrito cuando recargo
     });
 
     // Manejar clics en los enlaces de filtro de marca
@@ -100,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const precio = document.createElement('p');
         precio.innerHTML = `<strong>Precio</strong>: $${producto.precio.toFixed(2)}`;
-        precio.classList.add('precio')
+        precio.classList.add('precio');
 
         const botonAgregar = document.createElement('button');
         botonAgregar.classList.add('agregar-carrito');
@@ -125,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function filtrarProductosPorMarca(marca) {
-
         fetch('productos.json')
             .then(response => response.json())
             .then(data => {
@@ -141,23 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mostrarCarrito() {
-        // reset contenido
         asideCarrito.innerHTML = '';
 
         if (productosEnCarrito.length === 0) {
-            // ocultar aside si esta vacio
             asideCarrito.style.display = 'none';
             return;
         }
 
         const listaProductos = document.createElement('ul');
-        // eliminar punto d elista
         listaProductos.style.listStyle = 'none';
 
         productosEnCarrito.forEach((producto, index) => {
             const itemProducto = document.createElement('li');
 
-            // img de zap
             const imagenProducto = document.createElement('img');
             imagenProducto.src = producto.imagen;
             imagenProducto.alt = producto.modelo;
@@ -166,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
             imagenProducto.style.marginRight = '20px';
             itemProducto.appendChild(imagenProducto);
 
-            // text con marca y modelo
             const textoProducto = document.createElement('span');
             textoProducto.innerHTML = `<hr>${producto.marca} ${producto.modelo}  <strong>Precio</strong>: $${producto.precio.toFixed(2)}<hr>`;
             itemProducto.appendChild(textoProducto);
@@ -184,12 +181,21 @@ document.addEventListener("DOMContentLoaded", function () {
             itemProducto.appendChild(botonEliminar);
             listaProductos.appendChild(itemProducto);
         });
+
         asideCarrito.appendChild(listaProductos);
+        asideCarrito.appendChild(totalCarrito);
+        actualizarTotalCarrito();
+
         asideCarrito.style.display = 'block'; // Mostrar el aside si hay productos en el carrito
     }
 
     function eliminarDelCarrito(index) {
         productosEnCarrito.splice(index, 1);
         mostrarCarrito();
+    }
+
+    function actualizarTotalCarrito() {
+        const total = productosEnCarrito.reduce((sum, producto) => sum + producto.precio, 0);
+        totalCarrito.textContent = `Total: $${total}`;
     }
 });
