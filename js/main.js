@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Iniciando...");
+    console.log("probando...");
 
-    const contenedorProductos = document.getElementById('contenedor-productos');
-    const carritoNav = document.querySelector('.carrito-nav');
+    const contenedorProductos = document.getElementById('contenedorProductos');
+    const carritoNav = document.querySelector('.carritoNav');
     const asideCarrito = document.createElement('aside');
-    asideCarrito.classList.add('carrito-container');
+    asideCarrito.classList.add('carritoContainer');
     document.body.appendChild(asideCarrito);
     const productosEnCarrito = [];
 
     // crear el elemento para mostrar el total
     const totalCarrito = document.createElement('p');
-    totalCarrito.classList.add('total-carrito');
+    totalCarrito.classList.add('totalCarrito');
     asideCarrito.appendChild(totalCarrito);
 
     // ocultar carrito al recargar la página
@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // mostrar / esconder carrito
     function toggleCarrito() {
         if (asideCarrito.style.display === 'none' || asideCarrito.style.display === '') {
-            asideCarrito.style.display = 'block'; // Mostrar el carrito si está oculto
+            asideCarrito.style.display = 'block'; // muestra el carrito si está oculto
         } else {
-            asideCarrito.style.display = 'none'; // Ocultar carrito si está vacío
+            asideCarrito.style.display = 'none'; // se oculta carrito si está vacío
         }
     }
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('productos.json')
         .then(response => response.json())
         .then(data => mostrarProductos(data))
-        .catch(error => console.error('Error cargando productos:', error));
+        .catch(error => console.error('Error al cargar productos:', error));
 
     // inicio para filtrar productos
     document.querySelector('.nav-links li:first-child a').addEventListener('click', function (event) {
@@ -37,29 +37,29 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch('productos.json')
             .then(response => response.json())
             .then(data => mostrarProductos(data))
-            .catch(error => console.error('Error cargando productos:', error));
+            .catch(error => console.error('Error al cargar productos:', error));
 
-        asideCarrito.style.display = 'none'; // Para ocultar carrito cuando recargo
+        asideCarrito.style.display = 'none'; // para ocultar carrito cuando recargo la pagina
     });
 
     // manejar clics en los enlaces de filtro de marca
-    document.querySelectorAll('.dropdown-content a').forEach(link => {
+    document.querySelectorAll('.dropdownContent a').forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const marca = this.dataset.marca;
             filtrarProductosPorMarca(marca);
         });
     });
-
+    //cuando se da click al carrito nav se ejecuta la func
     carritoNav.addEventListener('click', () => {
         toggleCarrito();
     });
-
+    //la func para mostrar los prods
     function mostrarProductos(productos, marca = null) {
-        contenedorProductos.innerHTML = '';
-
+        contenedorProductos.innerHTML = ''; //reseteo el html
+        //creacion de container de prods
         const flexContainer = document.createElement('div');
-        flexContainer.classList.add('productos-flex');
+        flexContainer.classList.add('productosFlex');
 
         if (marca) {
             const tituloContainer = document.createElement('div');
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tituloContainer.appendChild(tituloMarca);
             contenedorProductos.appendChild(tituloContainer);
         }
-
+        // iteracion para mostrar prods
         productos.forEach(producto => {
             const productoDiv = document.createElement('div');
             productoDiv.classList.add('producto');
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         contenedorProductos.appendChild(flexContainer);
     }
-
+    // creo card para produs
     function crearTarjetaProducto(producto, marca) {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         precio.classList.add('precio');
 
         const botonAgregar = document.createElement('button');
-        botonAgregar.classList.add('agregar-carrito');
+        botonAgregar.classList.add('agregarCarrito');
         botonAgregar.addEventListener('click', () => {
             agregarAlCarrito(producto);
         });
@@ -134,16 +134,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 const productosFiltrados = data.filter(producto => producto.marca === marca);
                 mostrarProductos(productosFiltrados, marca);
             })
-            .catch(error => console.error('Error filtrando productos por marca:', error));
+            .catch(error => console.error('Error al filtrar los productos por marca:', error));
     }
-
+    // func para agregar a carrito
     function agregarAlCarrito(producto) {
         productosEnCarrito.push(producto);
         mostrarCarrito();
     }
-
+    // func de creacion carrito
     function mostrarCarrito() {
-        asideCarrito.innerHTML = '';
+        // limpio el aside del carrito
+        asideCarrito.innerHTML = ''; 
 
         if (productosEnCarrito.length === 0) {
             asideCarrito.style.display = 'none';
@@ -186,14 +187,14 @@ document.addEventListener("DOMContentLoaded", function () {
         asideCarrito.appendChild(totalCarrito);
         actualizarTotalCarrito();
 
-        asideCarrito.style.display = 'block'; // Mostrar el aside si hay productos en el carrito
+        asideCarrito.style.display = 'block';
     }
-
+    // func para eliminar prods del cart
     function eliminarDelCarrito(index) {
         productosEnCarrito.splice(index, 1);
         mostrarCarrito();
     }
-
+    // func para sumatoria de total cart
     function actualizarTotalCarrito() {
         const total = productosEnCarrito.reduce((sum, producto) => sum + producto.precio, 0);
         totalCarrito.textContent = `Total: $${total}`;
